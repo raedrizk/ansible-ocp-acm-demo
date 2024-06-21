@@ -3,10 +3,15 @@ apiVersion: tower.ansible.com/v1alpha1
 kind: AnsibleJob
 metadata:
   name: snow-open-cc
-  namespace: foxhound-webserver
+  namespace: foxhound-web
   labels:
-    app.kubernetes.io/name: foxhound-webserver
-    app: foxhound-webserver
+    app.kubernetes.io/name: foxhound-web
+    app: foxhound-web
 spec:
   tower_auth_secret: foxhoundaap
   job_template_name: ServiceNowDemo_snow_create_change_request
+  extra_vars:
+    snow_cr_short_desc_choice: Deploying foxhound web
+    snow_cr_desc_choice: Deploying foxhound web
+    snow_cr_priority_choice: moderate
+    snow_cr_risk_choice: moderate
