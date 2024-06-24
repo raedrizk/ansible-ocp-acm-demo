@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  labels:
-   app: foxhound-webserver
- name: foxhound-webserver
+   app: foxhound-web
+ name: foxhound-web
 spec:
  replicas: 2
  selector:
    matchLabels:
-     app: foxhound-webserver
+     app: foxhound-web
  template:
    metadata:
      labels:
-       app: foxhound-webserver
+       app: foxhound-web
    spec:
      containers:
        - image: quay.io/akrohg/acm-demo:v1
          imagePullPolicy: Always
-         name: foxhound-webserver
+         name: foxhound-web
          ports:
            - containerPort: 8080
